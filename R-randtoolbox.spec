@@ -4,16 +4,15 @@
 #
 Name     : R-randtoolbox
 Version  : 1.17.1
-Release  : 4
+Release  : 5
 URL      : https://cran.r-project.org/src/contrib/randtoolbox_1.17.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/randtoolbox_1.17.1.tar.gz
 Summary  : Toolbox for Pseudo and Quasi Random Number Generation and RNG
 Group    : Development/Tools
 License  : BSD-3-Clause
-Requires: R-randtoolbox-lib
-Requires: R-rngWELL
+Requires: R-randtoolbox-lib = %{version}-%{release}
 BuildRequires : R-rngWELL
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
 No detailed description available
@@ -34,11 +33,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1532211028
+export SOURCE_DATE_EPOCH=1552794602
 
 %install
+export SOURCE_DATE_EPOCH=1552794602
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1532211028
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -73,8 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library randtoolbox|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  randtoolbox || :
 
 
 %files
@@ -109,7 +107,11 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/randtoolbox/help/randtoolbox.rdx
 /usr/lib64/R/library/randtoolbox/html/00Index.html
 /usr/lib64/R/library/randtoolbox/html/R.css
-/usr/lib64/R/library/randtoolbox/libs/symbols.rds
+/usr/lib64/R/library/randtoolbox/tests/test-sobol-scram.R
+/usr/lib64/R/library/randtoolbox/tests/testHalton.R
+/usr/lib64/R/library/randtoolbox/tests/testTorus.R
+/usr/lib64/R/library/randtoolbox/tests/testWELL.R
+/usr/lib64/R/library/randtoolbox/tests/testenvir.R
 
 %files lib
 %defattr(-,root,root,-)
