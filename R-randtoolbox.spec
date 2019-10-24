@@ -4,7 +4,7 @@
 #
 Name     : R-randtoolbox
 Version  : 1.30.0
-Release  : 12
+Release  : 13
 URL      : https://cran.r-project.org/src/contrib/randtoolbox_1.30.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/randtoolbox_1.30.0.tar.gz
 Summary  : Toolbox for Pseudo and Quasi Random Number Generation and Random
@@ -14,6 +14,7 @@ Requires: R-randtoolbox-lib = %{version}-%{release}
 Requires: R-rngWELL
 BuildRequires : R-rngWELL
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
 No detailed description available
@@ -33,13 +34,13 @@ lib components for the R-randtoolbox package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1555881451
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1571882794
 
 %install
-export SOURCE_DATE_EPOCH=1555881451
+export SOURCE_DATE_EPOCH=1571882794
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -68,7 +69,7 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
