@@ -4,7 +4,7 @@
 #
 Name     : R-randtoolbox
 Version  : 1.30.1
-Release  : 17
+Release  : 18
 URL      : https://cran.r-project.org/src/contrib/randtoolbox_1.30.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/randtoolbox_1.30.1.tar.gz
 Summary  : Toolbox for Pseudo and Quasi Random Number Generation and Random
@@ -16,7 +16,10 @@ BuildRequires : R-rngWELL
 BuildRequires : buildreq-R
 
 %description
-No detailed description available
+multiple recursive generators and generalized feedback shift register (SF-Mersenne Twister
+    algorithm and WELL generators); (2) quasi random generators - the Torus algorithm, the
+    Sobol sequence, the Halton sequence (including the Van der Corput sequence) and (3) some
+    generator tests - the gap test, the serial test, the poker test.
 
 %package lib
 Summary: lib components for the R-randtoolbox package.
@@ -28,21 +31,22 @@ lib components for the R-randtoolbox package.
 
 %prep
 %setup -q -c -n randtoolbox
+cd %{_builddir}/randtoolbox
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1580494596
+export SOURCE_DATE_EPOCH=1589578672
 
 %install
-export SOURCE_DATE_EPOCH=1580494596
+export SOURCE_DATE_EPOCH=1589578672
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
