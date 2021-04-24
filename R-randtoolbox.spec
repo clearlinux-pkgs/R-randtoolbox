@@ -4,7 +4,7 @@
 #
 Name     : R-randtoolbox
 Version  : 1.30.1
-Release  : 20
+Release  : 21
 URL      : https://cran.r-project.org/src/contrib/randtoolbox_1.30.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/randtoolbox_1.30.1.tar.gz
 Summary  : Toolbox for Pseudo and Quasi Random Number Generation and Random
