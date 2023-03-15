@@ -4,7 +4,7 @@
 #
 Name     : R-randtoolbox
 Version  : 2.0.4
-Release  : 43
+Release  : 44
 URL      : https://cran.r-project.org/src/contrib/randtoolbox_2.0.4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/randtoolbox_2.0.4.tar.gz
 Summary  : Toolbox for Pseudo and Quasi Random Number Generation and Random
